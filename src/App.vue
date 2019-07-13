@@ -2,16 +2,16 @@
   <div id="app">
     <h1>Hello Parcel from Vue 📦 🚀</h1>
     <v-btn> Cool button</v-btn>
-    <shows></shows>
+    <show-list></show-list>
   </div>
 </template>
 
 <script>
-  import Shows from "./components/shows/shows";
 
+  import ShowList from "./components/show-list/show-list";
   export default {
     name: 'app',
-    components: {Shows}
+    components: {ShowList},
   }
 </script>
 

@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "shows"
+    name: "show-list"
   }
 </script>
 
