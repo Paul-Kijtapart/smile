@@ -1,13 +1,17 @@
 <template lang="html">
   <div id="app">
     <h1>Hello Parcel from Vue 📦 🚀</h1>
-    <v-btn> Cool button </v-btn>
+    <v-btn> Cool button</v-btn>
+    <shows></shows>
   </div>
 </template>
 
 <script>
+  import Shows from "./components/shows/shows";
+
   export default {
-    name: 'app'
+    name: 'app',
+    components: {Shows}
   }
 </script>
 
