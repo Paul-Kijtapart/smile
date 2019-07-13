@@ -1,6 +1,7 @@
 <template lang="html">
   <div id="app">
     <h1>Hello Parcel from Vue 📦 🚀</h1>
+    <v-btn> Cool button </v-btn>
   </div>
 </template>
 
