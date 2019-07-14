@@ -3,17 +3,17 @@
     <h1>Hello Parcel from Vue 📦 🚀</h1>
     <v-btn> Cool button</v-btn>
     <show-list></show-list>
-    <text-animation-view></text-animation-view>
+    <moving-boxes-view></moving-boxes-view>
   </div>
 </template>
 
 <script>
 
   import ShowList from "./components/show-list/show-list";
-  import TextAnimationView from "./views/text-animation-view/text-animation-view";
+  import MovingBoxesView from "./views/moving-boxes-view";
   export default {
     name: 'app',
-    components: {TextAnimationView, ShowList},
+    components: {MovingBoxesView, ShowList},
   }
 </script>
 
