@@ -3,7 +3,7 @@
 
     <!-- Content -->
     <div class="show-content">
-      <moving-boxes-view></moving-boxes-view>
+      <happy-birthday-view></happy-birthday-view>
     </div>
   </div>
 </template>
@@ -11,10 +11,11 @@
 <script>
   import ShowList from "./components/show-list/show-list";
   import MovingBoxesView from "./views/moving-boxes-view";
+  import HappyBirthdayView from "./views/happy-birthday-view";
 
   export default {
     name: 'app',
-    components: {MovingBoxesView, ShowList},
+    components: {HappyBirthdayView, MovingBoxesView, ShowList},
   }
 </script>
 

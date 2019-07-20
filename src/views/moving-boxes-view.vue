@@ -20,7 +20,6 @@
     name: "moving-boxes-view",
     methods: {
       moveRight: function () {
-        const box1 = this.$refs['box1'];
         TweenMax.to('.box-1', 2, {
           backgroundColor: 'blue',
           width: 100,
