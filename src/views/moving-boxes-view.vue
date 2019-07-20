@@ -24,14 +24,21 @@
         TweenMax.to('.box-1', 2, {
           backgroundColor: 'blue',
           width: 100,
-          height: 100
+          height: 100,
+          color: 'white'
         });
       }
     },
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+  .moving-boxes {
+    width: 100%;
+    height: 100%;
+  }
+
   .box-1 {
     height: 50px;
     width: 50px;

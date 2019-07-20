@@ -1,23 +1,24 @@
 <template lang="html">
   <div id="app">
-    <h1>Hello Parcel from Vue 📦 🚀</h1>
-    <v-btn> Cool button</v-btn>
-    <show-list></show-list>
-    <moving-boxes-view></moving-boxes-view>
+
+    <!-- Content -->
+    <div class="show-content">
+      <moving-boxes-view></moving-boxes-view>
+    </div>
   </div>
 </template>
 
 <script>
-
   import ShowList from "./components/show-list/show-list";
   import MovingBoxesView from "./views/moving-boxes-view";
+
   export default {
     name: 'app',
     components: {MovingBoxesView, ShowList},
   }
 </script>
 
-<style lang="css">
+<style lang="scss" scoped>
   html,
   body {
     height: 100%;
@@ -33,9 +34,17 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+    min-height: 100vh;
   }
 
   h1 {
     font-weight: 300;
+  }
+
+  .show-content {
+    width: 100%;
+    min-height: 500px;
+    background-color: lightblue;
   }
 </style>
