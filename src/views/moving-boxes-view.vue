@@ -25,7 +25,8 @@
           backgroundColor: 'blue',
           width: 100,
           height: 100,
-          color: 'white'
+          color: 'white',
+          left: 300
         });
       }
     },
@@ -44,6 +45,7 @@
     width: 50px;
     background-color: lightcoral;
     border: 1px black;
+    position: relative;
     display: flex;
     flex-flow: row;
     align-items: center;
