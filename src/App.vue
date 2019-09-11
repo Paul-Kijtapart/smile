@@ -16,10 +16,16 @@
       <!-- Next btn -->
       <v-btn v-if="cardIndex < numMessages"
              block
+             :loading="loading"
+             :disabled="loading"
              class="next-btn"
-             @click="cardIndex += 1">
+             @click="onNextClick">
         <v-icon left>mdi-arrow-right</v-icon>
         Next
+        <!-- Loading content -->
+        <template v-slot:loader>
+          <span> {{ btnLoadingTexts[cardIndex] }} </span>
+        </template>
       </v-btn>
       <v-btn v-else
              block
@@ -47,13 +53,25 @@
         cardIndex: 0,
         messages: [
           'Happy Birthday :)',
-          "You're seriously annoying.",
+          "You're seriously annoying...",
+          "Like seriously.",
           "I mean you're pretty cool.",
           "I just wanna be with you.",
           "I mean I hope all of your dreams come true.",
           "28th is going to be a great year.",
           "I will be cheering for you."
-        ]
+        ],
+        btnLoadingTexts: [
+          'Thinking...',
+          "Wait...",
+          ":/",
+          "<3",
+          "<3333333",
+          ":)",
+          ":D",
+          ":3"
+        ],
+        loading: false,
       }
     },
     computed: {
@@ -61,7 +79,15 @@
         return this.messages.length;
       }
     },
-    methods: {}
+    methods: {
+      onNextClick: function () {
+        this.loading = true;
+        setTimeout(() => {
+          this.cardIndex += 1;
+          this.loading = false;
+        }, 2000);
+      }
+    }
   }
 </script>
 

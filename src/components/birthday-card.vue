@@ -21,6 +21,9 @@
         type: String,
         required: true
       }
+    },
+    data: function () {
+      return {};
     }
   }
 </script>
