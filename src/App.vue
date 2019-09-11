@@ -6,28 +6,24 @@
 
       <!-- Card -->
       <template v-for="(message, index) in messages">
-        <v-card v-if="cardIndex === index"
-                :key="index"
-                class="mx-auto birthday-card"
-                color="#26c6da"
-                dark>
-          <!-- Title -->
-          <v-card-title class="birthday-card-title">
-            <v-icon large left>
-              {{ message }}
-            </v-icon>
-          </v-card-title>
-        </v-card>
+        <birthday-card v-if="cardIndex === index"
+                       :key="index"
+                       class="mx-auto birthday-card"
+                       color="#26c6da"
+                       dark
+                       :message="message">
+        </birthday-card>
       </template>
 
       <!-- Next btn -->
       <v-btn v-if="cardIndex < numMessages"
              block
-             @click="onNextClick">
+             @click="cardIndex += 1">
         Next
       </v-btn>
       <v-btn v-else
              block
+             @click="cardIndex = 0"
              class="bye-btn">
         You've used your token for this year.
         Please do not refresh this page.
@@ -41,10 +37,11 @@
   import ShowList from "./components/show-list/show-list";
   import MovingBoxesView from "./views/moving-boxes-view";
   import HappyBirthdayView from "./views/happy-birthday-view";
+  import BirthdayCard from "./components/birthday-card";
 
   export default {
     name: 'app',
-    components: {HappyBirthdayView, MovingBoxesView, ShowList},
+    components: {BirthdayCard, HappyBirthdayView, MovingBoxesView, ShowList},
     data: function () {
       return {
         cardIndex: 0,
@@ -64,15 +61,11 @@
         return this.messages.length;
       }
     },
-    methods: {
-      onNextClick: function () {
-        this.cardIndex += 1;
-      }
-    }
+    methods: {}
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   html,
   body {
     height: 100%;
@@ -99,15 +92,6 @@
   .show-content {
     text-align: center;
     min-width: 400px;
-  }
-
-  .birthday-card {
-    color: white;
-  }
-
-  .birthday-card-title {
-    display: flex;
-    justify-content: center;
   }
 
   .bye-btn {
