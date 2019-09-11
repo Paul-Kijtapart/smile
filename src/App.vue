@@ -8,7 +8,6 @@
       <template v-for="(message, index) in messages">
         <v-card v-if="cardIndex === index"
                 :key="index"
-                max-width="344"
                 class="mx-auto"
                 color="#26c6da"
                 dark>
@@ -23,10 +22,12 @@
 
       <!-- Next btn -->
       <v-btn v-if="cardIndex < numMessages"
+             block
              @click="onNextClick">
         Next
       </v-btn>
       <v-btn v-else
+             block
              class="bye-btn">
         You've used your token for this year.
         Please do not refresh this page.
@@ -96,8 +97,8 @@
   }
 
   .show-content {
-    width: 100%;
     text-align: center;
+    min-width: 400px;
   }
 
   .birthday-card {
