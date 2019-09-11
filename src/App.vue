@@ -57,7 +57,7 @@
           "Like seriously.",
           "I mean you're pretty cool.",
           "I just wanna be with you.",
-          "I mean I hope all of your dreams come true.",
+          "I mean I hope all your dreams come true.",
           "28th is going to be a great year.",
           "I will be cheering for you."
         ],
