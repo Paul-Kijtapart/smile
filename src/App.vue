@@ -46,13 +46,13 @@
       return {
         cardIndex: 0,
         messages: [
-          'Happy birthday :)',
+          'Happy Birthday :)',
           "You're seriously annoying.",
           "I mean you're pretty cool.",
           "I just wanna be with you.",
-          "I mean I hope your dreams come true.",
-          "Your 28 is going to be a great year.",
-          "I will cheering for you."
+          "I mean I hope all of your dreams come true.",
+          "28th is going to be a great year.",
+          "I will be cheering for you."
         ]
       }
     },
