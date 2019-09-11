@@ -1,9 +1,7 @@
 <template lang="html">
   <div id="app">
-
     <!-- Content -->
     <div class="show-content">
-
       <!-- Card -->
       <template v-for="(message, index) in messages">
         <birthday-card v-if="cardIndex === index"
@@ -28,7 +26,6 @@
         You've used your token for this year.
         Please do not refresh this page.
       </v-btn>
-
     </div>
   </div>
 </template>
@@ -72,12 +69,12 @@
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
     background-color: whitesmoke;
   }
 
   #app {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
     display: flex;
     justify-content: center;
     align-items: center;
