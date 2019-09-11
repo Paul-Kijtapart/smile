@@ -8,11 +8,11 @@
       <template v-for="(message, index) in messages">
         <v-card v-if="cardIndex === index"
                 :key="index"
-                class="mx-auto"
+                class="mx-auto birthday-card"
                 color="#26c6da"
                 dark>
           <!-- Title -->
-          <v-card-title>
+          <v-card-title class="birthday-card-title">
             <v-icon large left>
               {{ message }}
             </v-icon>
@@ -103,6 +103,11 @@
 
   .birthday-card {
     color: white;
+  }
+
+  .birthday-card-title {
+    display: flex;
+    justify-content: center;
   }
 
   .bye-btn {
