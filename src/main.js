@@ -5,7 +5,8 @@ import Vuetify from 'vuetify'
 
 // Install Vuetify
 Vue.use(Vuetify);
-import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/dist/vuetify.min.css'
 
 new Vue({
   el: '#app',

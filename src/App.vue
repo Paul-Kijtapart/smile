@@ -16,13 +16,16 @@
       <!-- Next btn -->
       <v-btn v-if="cardIndex < numMessages"
              block
+             class="next-btn"
              @click="cardIndex += 1">
+        <v-icon left>mdi-arrow-right</v-icon>
         Next
       </v-btn>
       <v-btn v-else
              block
              @click="cardIndex = 0"
              class="bye-btn">
+        <v-icon left>mdi-heart</v-icon>
         You've used your token for this year.
         Please do not refresh this page.
       </v-btn>
@@ -94,5 +97,8 @@
   .bye-btn {
     background-color: lightcoral !important;
     color: white !important;
+  }
+
+  .next-btn {
   }
 </style>
