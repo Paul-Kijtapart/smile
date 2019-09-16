@@ -97,7 +97,7 @@
         setTimeout(() => {
           this.cardIndex += 1;
           this.loading = false;
-        }, 2000);
+        }, 1500);
       }
     }
   }
