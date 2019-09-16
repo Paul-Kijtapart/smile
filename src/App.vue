@@ -31,7 +31,6 @@
           </v-btn>
           <!-- End state -->
           <div v-else
-               @click="cardIndex = 0"
                :class="['door-knob__content', 'bye-btn']">
             <div> You've used your token for this year.</div>
             <div> Please do not refresh this page.</div>
