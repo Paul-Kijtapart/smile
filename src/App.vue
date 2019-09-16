@@ -98,7 +98,7 @@
         setTimeout(() => {
           this.cardIndex += 1;
           this.loading = false;
-        }, 0);
+        }, 2000);
       }
     }
   }
@@ -147,7 +147,7 @@
   }
 
   .next-btn--loading {
-
+    font-weight: bolder;
   }
 
   .next-btn {
