@@ -1,40 +1,43 @@
 <template lang="html">
   <div id="app">
     <!-- Content -->
-    <div class="show-content">
-      <!-- Card -->
-      <template v-for="(message, index) in messages">
-        <birthday-card v-if="cardIndex === index"
-                       :key="index"
-                       class="mx-auto birthday-card"
-                       color="#26c6da"
-                       dark
-                       :message="message">
-        </birthday-card>
-      </template>
-
-      <!-- Next btn -->
-      <v-btn v-if="cardIndex < numMessages"
-             block
-             :loading="loading"
-             :disabled="loading"
-             class="next-btn"
-             @click="onNextClick">
-        <v-icon left>mdi-arrow-right</v-icon>
-        Next
-        <!-- Loading content -->
-        <template v-slot:loader>
-          <span> {{ btnLoadingTexts[cardIndex] }} </span>
+    <div class="show-content"
+         :style="showContentStyle[cardIndex]">
+      <div class="door-content">
+        <!-- Card -->
+        <template v-for="(message, index) in messages">
+          <birthday-card v-if="cardIndex === index"
+                         :key="index"
+                         :message="message">
+          </birthday-card>
         </template>
-      </v-btn>
-      <v-btn v-else
-             block
-             @click="cardIndex = 0"
-             class="bye-btn">
-        <v-icon left>mdi-heart</v-icon>
-        You've used your token for this year.
-        Please do not refresh this page.
-      </v-btn>
+
+        <!-- Next btn -->
+        <div class="door-knob">
+          <!-- Normal state -->
+          <v-btn v-if="cardIndex < numMessages"
+                 :loading="loading"
+                 :disabled="loading"
+                 :class="['door-knob__content','next-btn','next-btn--loading',loading? 'next-btn--loading': '' ]"
+                 fab
+                 x-small
+                 @click="onNextClick">
+            <!-- Spinner -->
+            <div class="door-knob__spinner"></div>
+            <!-- Loading content -->
+            <template v-slot:loader>
+              <span> {{ btnLoadingTexts[cardIndex] }} </span>
+            </template>
+          </v-btn>
+          <!-- End state -->
+          <div v-else
+               @click="cardIndex = 0"
+               :class="['door-knob__content', 'bye-btn']">
+            <div> You've used your token for this year.</div>
+            <div> Please do not refresh this page.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,6 +74,16 @@
           ":D",
           ":3"
         ],
+        showContentStyle: [
+          {'background-color': "#2D728F", 'color': 'white'},
+          {'background-color': "#3B8EA5", 'color': 'white'},
+          {'background-color': "#C7CB85", 'color': 'white'},
+          {'background-color': "#F49E4C", 'color': 'white'},
+          {'background-color': "#AB3428", 'color': 'white'},
+          {'background-color': "#2D728F", 'color': 'white'},
+          {'background-color': "#3B8EA5", 'color': 'white'},
+          {'background-color': "#C7CB85", 'color': 'white'},
+        ],
         loading: false,
       }
     },
@@ -85,7 +98,7 @@
         setTimeout(() => {
           this.cardIndex += 1;
           this.loading = false;
-        }, 2000);
+        }, 0);
       }
     }
   }
@@ -98,7 +111,6 @@
   }
 
   body {
-    background-color: whitesmoke;
   }
 
   #app {
@@ -106,9 +118,10 @@
     'Segoe UI Emoji', 'Segoe UI Symbol';
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    background-color: whitesmoke;
   }
 
   h1 {
@@ -116,15 +129,49 @@
   }
 
   .show-content {
-    text-align: center;
-    min-width: 400px;
+    min-width: 600px;
+    height: 80%;
+    border-radius: 50px 50px 0px 0px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .bye-btn {
+    border-radius: 50px;
+    padding: 10px 20px;
     background-color: lightcoral !important;
     color: white !important;
+    text-align: center;
+  }
+
+  .next-btn--loading {
+
   }
 
   .next-btn {
+  }
+
+  .next-btn--loading {
+    background-color: orange;
+  }
+
+  .door-content {
+    width: 100%;
+  }
+
+  .door-knob {
+    text-align: right;
+  }
+
+  .door-knob__content {
+  }
+
+  .door-knob__spinner {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: slategray;
   }
 </style>

@@ -1,15 +1,12 @@
 <template>
   <div class="birthday-card-wrapper">
     <!-- Card -->
-    <v-card v-bind="$attrs"
-            class="birthday-card">
+    <div class="birthday-card">
       <!-- Title -->
-      <v-card-title class="birthday-card-title">
-        <v-icon large left>
-          {{ message }}
-        </v-icon>
-      </v-card-title>
-    </v-card>
+      <h2 class="birthday-card-title">
+        {{ message }}
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -33,10 +30,14 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
     color: white;
+    background-color: inherit;
   }
 
   .birthday-card-title {
     display: flex;
     justify-content: center;
+    background-color: inherit;
+    color: white;
+    min-height: 200px;
   }
 </style>
