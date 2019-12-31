@@ -9,6 +9,19 @@
       <div class="new-year-wrapper-text new-year-wrapper-text--secondary">
         I am still cheering for you! That won't change any time soon.
       </div>
+
+      <!-- dragon fly pass the page -->
+      <div class="dragon-list-wrapper">
+        <div class="dragon-list">
+          <div v-for="i in 7"
+               :key="i"
+               class="dragon-item">
+            <i :style="{'color': rainbowPalette[i - 1]}"
+               class="fas fa-dragon">
+            </i>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Wish page -->
@@ -26,7 +39,7 @@
           Alcohol is bad! Stay with tea!
         </div>
         <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
-          I hope you meet someone who really cares for you
+          I hope you meet someone who really cares for you.
         </div>
         <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
           I hope all your dreams come true.
@@ -45,7 +58,11 @@
     name: "happy-new-year",
     data: function () {
       return {
-        pageIndex: 0
+        pageIndex: 0,
+
+        rainbowPalette: [
+          '#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'
+        ],
       };
     },
     methods: {
@@ -161,5 +178,28 @@
     flex-grow: 1;
     display: flex;
     flex-flow: row nowrap;
+  }
+
+  .dragon-list-wrapper {
+    /*visibility: hidden;*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  .dragon-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+  }
+
+  .dragon-item {
+    font-size: 1.5em;
   }
 </style>
