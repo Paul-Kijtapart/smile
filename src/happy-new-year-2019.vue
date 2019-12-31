@@ -3,11 +3,12 @@
     <!-- Congrat page -->
     <div v-if="pageIndex === 0" class="happy-new-year-page happy-new-year-page--congrat">
       <h1 class="new-year-wrapper-text new-year-wrapper-text--primary">
-        Happy New Year 2020 <i class="new-year-wrapper-primary-icon fas fa-dragon"></i>
+        Happy New Year 2020 <i @click="GoToWishPage"
+                               class="new-year-wrapper-primary-icon fas fa-dragon"></i>
       </h1>
-      <h3 class="new-year-wrapper-text new-year-wrapper-text--secondary">
+      <div class="new-year-wrapper-text new-year-wrapper-text--secondary">
         I am still cheering for you! That won't change any time soon.
-      </h3>
+      </div>
     </div>
 
     <!-- Wish page -->
@@ -17,18 +18,18 @@
       </div>
       <!-- Wish list -->
       <div class="wish-list">
-        <h3 class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
+        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
           I hope you sleep more.
-        </h3>
-        <h3 class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
+        </div>
+        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
           Alcohol is bad! Stay with tea!
-        </h3>
-        <h3 class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
+        </div>
+        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
           I hope you meet someone who really cares for you
-        </h3>
-        <h3 class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
+        </div>
+        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
           I hope all your dreams come true.
-        </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -42,8 +43,13 @@
     name: "happy-new-year",
     data: function () {
       return {
-        pageIndex: 0
+        pageIndex: 1
       };
+    },
+    methods: {
+      GoToWishPage: function () {
+        this.pageIndex += 1;
+      }
     },
     mounted() {
       console.log(newYearParticleConfig);
@@ -84,8 +90,21 @@
     align-items: center;
   }
 
+  .happy-new-year-page--congrat {
+    z-index: 1;
+  }
+
+  .happy-new-year-page--wish {
+    width: 100%;
+    height: 100%;
+  }
+
   .new-year-wrapper-primary-icon {
     color: green;
+
+    &:hover {
+      color: red;
+    }
   }
 
   .new-year-wrapper-text {
@@ -107,19 +126,31 @@
   }
 
   .new-year-wrapper-text--wish {
+    font-size: 2em;
+  }
 
+  .wish-list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wish-item {
+    margin-bottom: 20px;
   }
 
   .wish-delivery {
-    width: 50px;
+    flex-grow: 1;
     height: 100%;
     background-image: url("http://vincentgarreau.com/particles.js/assets/img/kbLd9vb_new.gif");
-    background-size: 60%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 50%;
   }
 
   .happy-new-year-page--wish {
+    flex-grow: 1;
     display: flex;
     flex-flow: row nowrap;
   }
