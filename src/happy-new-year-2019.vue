@@ -144,7 +144,7 @@
   .happy-new-year {
     width: 100%;
     height: 100%;
-    background-color: #8cbed6;
+    background-color: #000337;
     cursor: pointer;
   }
 </style>
