@@ -20,4 +20,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  #app {
+    height: 100vh;
+  }
 </style>

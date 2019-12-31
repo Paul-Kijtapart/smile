@@ -1,7 +1,11 @@
 <template>
   <div id="new-year-wrapper" class="happy-new-year">
-    asdasd
-    Happy New Year.
+    <h1 class="new-year-wrapper-text new-year-wrapper-text--primary">
+      Happy New Year
+    </h1>
+    <h2 class="new-year-wrapper-text new-year-wrapper-text--secondary">
+      I am still cheering for you!
+    </h2>
   </div>
 </template>
 
@@ -132,7 +136,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   html,
   body {
     height: 100%;
@@ -142,9 +146,39 @@
   }
 
   .happy-new-year {
+    position: relative;
+    text-align: center;
     width: 100%;
     height: 100%;
     background-color: #000337;
     cursor: pointer;
+    padding: 20px 10px;
+    background-image: url("http://vincentgarreau.com/particles.js/assets/img/kbLd9vb_new.gif");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: 0px 50%;
+  }
+
+  .happy-new-year {
+    .particles-js-canvas-el {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .new-year-wrapper-text {
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .new-year-wrapper-text--primary {
+  }
+
+  .new-year-wrapper-main-text {
   }
 </style>
