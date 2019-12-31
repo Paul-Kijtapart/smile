@@ -77,7 +77,7 @@
           // Run them dragons.
           this.rainbowPalette.forEach((_, i) => {
             tl.fromTo(`.dragon-item__icon--${i}`,
-                1,
+                0.7,
                 {opacity: 1, left: '-50px'},
                 {left: '100%', opacity: 1, ease: 'back'});
           });
