@@ -17,6 +17,7 @@
                :key="i"
                class="dragon-item">
             <i :style="{'color': rainbowPalette[i - 1]}"
+               :class="`dragon-item--${i}`"
                class="fas fa-dragon">
             </i>
           </div>
@@ -31,18 +32,13 @@
            class="wish-delivery">
       </div>
       <!-- Wish list -->
-      <div class="wish-list">
-        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
-          I hope you sleep more.
-        </div>
-        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
-          Alcohol is bad! Stay with tea!
-        </div>
-        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
-          I hope you meet someone who really cares for you.
-        </div>
-        <div class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
-          I hope all your dreams come true.
+      <div class="wish-list-wrapper">
+        <div class="wish-list">
+          <div v-for="wish in wishes"
+               :key="wish"
+               class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
+            {{ wish }}
+          </div>
         </div>
       </div>
     </div>
@@ -52,7 +48,7 @@
 <script>
   import "particles.js/particles";
   import newYearParticleConfig from "./assets/new-year-particles.json";
-  import {TweenLite} from "gsap/TweenMax";
+  import gsap from "gsap";
 
   export default {
     name: "happy-new-year",
@@ -63,6 +59,13 @@
         rainbowPalette: [
           '#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'
         ],
+
+        wishes: [
+          'I hope you sleep more.',
+          'Alcohol is bad! Stay with tea!',
+          ' I hope you meet someone who really cares for you.',
+          'I hope all your dreams come true.'
+        ]
       };
     },
     methods: {
@@ -71,8 +74,11 @@
 
         this.$nextTick(function () {
           const wishDelivery = this.$refs['wish-delivery'];
-          TweenLite.to(wishDelivery, 2, {
-            'flex-grow': '1'
+
+          const tl = gsap.timeline();
+          tl.to(wishDelivery, 2, {
+            'flex-grow': '1',
+            duration: 3,
           });
         })
       }
@@ -155,11 +161,17 @@
     font-size: 2em;
   }
 
-  .wish-list {
+  .wish-list-wrapper {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+  }
+
+  .wish-list {
+    padding: 20px 10px;
+    background-color: rgba(250, 250, 250, 0.1);
+    border-radius: 25px;
   }
 
   .wish-item {
@@ -182,6 +194,7 @@
 
   .dragon-list-wrapper {
     /*visibility: hidden;*/
+    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -201,5 +214,7 @@
 
   .dragon-item {
     font-size: 1.5em;
+    text-align: right;
+    opacity: 0;
   }
 </style>
