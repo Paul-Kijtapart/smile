@@ -1,11 +1,23 @@
 <template>
   <div id="new-year-wrapper" class="happy-new-year">
     <h1 class="new-year-wrapper-text new-year-wrapper-text--primary">
-      Happy New Year
+      Happy New Year 2020
     </h1>
-    <h2 class="new-year-wrapper-text new-year-wrapper-text--secondary">
+    <h3 class="new-year-wrapper-text new-year-wrapper-text--secondary">
       I am still cheering for you!
-    </h2>
+    </h3>
+    <h3 class="new-year-wrapper-text new-year-wrapper-text--wish">
+      I hope you sleep more.
+    </h3>
+    <h3 class="new-year-wrapper-text new-year-wrapper-text--wish">
+      Alcohol is bad! Stay with tea!
+    </h3>
+    <h3 class="new-year-wrapper-text new-year-wrapper-text--wish">
+      I hope you meet someone who really cares for you
+    </h3>
+    <h3 class="new-year-wrapper-text new-year-wrapper-text--wish">
+      I hope all your dreams come true.
+    </h3>
   </div>
 </template>
 
@@ -177,8 +189,19 @@
   }
 
   .new-year-wrapper-text--primary {
+    font-size: 4em;
+    margin-bottom: 40px;
+  }
+
+  .new-year-wrapper-text--secondary {
+    font-size: 2em;
+    margin-bottom: 30px;
   }
 
   .new-year-wrapper-main-text {
+  }
+
+  .new-year-wrapper-text--wish {
+
   }
 </style>
