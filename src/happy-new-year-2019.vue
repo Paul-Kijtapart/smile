@@ -14,7 +14,8 @@
     <!-- Wish page -->
     <div v-else-if="pageIndex === 1" class="happy-new-year-page happy-new-year-page--wish">
       <!-- The cat -->
-      <div class="wish-delivery">
+      <div ref="wish-delivery"
+           class="wish-delivery">
       </div>
       <!-- Wish list -->
       <div class="wish-list">
@@ -38,17 +39,25 @@
 <script>
   import "particles.js/particles";
   import newYearParticleConfig from "./assets/new-year-particles.json";
+  import {TweenLite} from "gsap/TweenMax";
 
   export default {
     name: "happy-new-year",
     data: function () {
       return {
-        pageIndex: 1
+        pageIndex: 0
       };
     },
     methods: {
       GoToWishPage: function () {
         this.pageIndex += 1;
+
+        this.$nextTick(function () {
+          const wishDelivery = this.$refs['wish-delivery'];
+          TweenLite.to(wishDelivery, 2, {
+            'flex-grow': '1'
+          });
+        })
       }
     },
     mounted() {
@@ -141,7 +150,6 @@
   }
 
   .wish-delivery {
-    flex-grow: 1;
     height: 100%;
     background-image: url("http://vincentgarreau.com/particles.js/assets/img/kbLd9vb_new.gif");
     background-size: 100%;
