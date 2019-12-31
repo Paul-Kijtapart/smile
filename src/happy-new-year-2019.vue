@@ -3,8 +3,11 @@
     <!-- Congrat page -->
     <div v-if="pageIndex === 0" class="happy-new-year-page happy-new-year-page--congrat">
       <h1 class="new-year-wrapper-text new-year-wrapper-text--primary">
-        Happy New Year 2020 <i @click="GoToWishPage"
-                               class="new-year-wrapper-primary-icon fas fa-dragon"></i>
+        Happy New Year 2020
+        <i v-if="!hasClick"
+           @click="GoToWishPage"
+           class="new-year-wrapper-primary-icon fas fa-dragon"></i>
+        <span style="font-size: 0.5em; color: grey" v-else> watching dragons fly...</span>
       </h1>
       <div class="new-year-wrapper-text new-year-wrapper-text--secondary">
         I am still cheering for you! That won't change any time soon.
@@ -60,6 +63,7 @@
         rainbowPalette: [
           '#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'
         ],
+        hasClick: false,
 
         wishes: [
           'I hope you sleep more. <i class="fas fa-bed"></i>',
@@ -71,6 +75,8 @@
     },
     methods: {
       GoToWishPage: function () {
+        this.hasClick = true;
+
         this.$nextTick(() => {
           const tl = gsap.timeline();
 
