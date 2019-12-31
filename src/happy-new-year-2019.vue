@@ -17,8 +17,8 @@
                :key="i"
                class="dragon-item">
             <i :style="{'color': rainbowPalette[i - 1]}"
-               :class="`dragon-item--${i}`"
-               class="fas fa-dragon">
+               :class="`dragon-item__icon--${i}`"
+               class="dragon-item__icon fas fa-dragon">
             </i>
           </div>
         </div>
@@ -34,8 +34,9 @@
       <!-- Wish list -->
       <div class="wish-list-wrapper">
         <div class="wish-list">
-          <div v-for="wish in wishes"
+          <div v-for="(wish, i) in wishes"
                :key="wish"
+               :class="`wish-item--${i}`"
                class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
             {{ wish }}
           </div>
@@ -70,15 +71,28 @@
     },
     methods: {
       GoToWishPage: function () {
-        this.pageIndex += 1;
-
-        this.$nextTick(function () {
-          const wishDelivery = this.$refs['wish-delivery'];
-
+        this.$nextTick( () => {
           const tl = gsap.timeline();
-          tl.to(wishDelivery, 2, {
-            'flex-grow': '1',
-            duration: 3,
+
+          // Run them dragons.
+          this.rainbowPalette.forEach((_, i) => {
+            tl.fromTo(`.dragon-item__icon--${i}`,
+                1,
+                {opacity: 1, left: '-50px'},
+                {left: '100%', opacity: 1, ease: 'back'});
+          });
+
+          // Go to next page.
+          tl.add(() => {
+            this.pageIndex += 1;
+
+            this.$nextTick(() => {
+              const wishDelivery = this.$refs['wish-delivery'];
+              tl.to(wishDelivery, 2, {
+                'flex-grow': '1',
+                duration: 3,
+              });
+            });
           });
         })
       }
@@ -213,8 +227,10 @@
   }
 
   .dragon-item {
-    font-size: 1.5em;
-    text-align: right;
-    opacity: 0;
+    .dragon-item__icon {
+      position: relative;
+      font-size: 40px;
+      opacity: 0;
+    }
   }
 </style>
