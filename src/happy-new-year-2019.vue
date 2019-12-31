@@ -37,8 +37,8 @@
           <div v-for="(wish, i) in wishes"
                :key="wish"
                :class="`wish-item--${i}`"
-               class="wish-item new-year-wrapper-text new-year-wrapper-text--wish">
-            {{ wish }}
+               class="wish-item new-year-wrapper-text new-year-wrapper-text--wish"
+               v-html="wish">
           </div>
         </div>
       </div>
@@ -62,16 +62,16 @@
         ],
 
         wishes: [
-          'I hope you sleep more.',
-          'Alcohol is bad! Stay with tea!',
-          ' I hope you meet someone who really cares for you.',
-          'I hope all your dreams come true.'
+          'I hope you sleep more. <i class="fas fa-bed"></i>',
+          'Alcohol is bad! Stay with tea! <i class="far fa-grin-beam-sweat"></i>',
+          ' I hope you meet someone who really cares for you. <i class="far fa-smile"></i>',
+          'I hope all your dreams come true. <i class="far fa-heart"></i>'
         ]
       };
     },
     methods: {
       GoToWishPage: function () {
-        this.$nextTick( () => {
+        this.$nextTick(() => {
           const tl = gsap.timeline();
 
           // Run them dragons.
