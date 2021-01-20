@@ -19,7 +19,7 @@
     "vuetify": "^1.5.16"
   },
   "dependencies": {
-    "gsap": "^3.0.4",
+    "gsap": "^3.6.0",
     "particles.js": "^2.0.0",
     "vue-hot-reload-api": "^2.3.3"
   }
